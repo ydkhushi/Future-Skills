@@ -13,7 +13,7 @@ Ans.
 To ensure each product in the "Product" table has a valid category. We will use concept of Referential Integrity for ensuring consistency 
 and accuracy of data relationships between tables . It's enforced through various mechanisms, primarily foreign key constraints
 
-1 .Implement a foreign key constraint between the "Product" and "Product_Category" tables.
+1 .Implement a foreign key constraint between the "Product" and "Product_Category" tables or else we can implement similar thing using stored procedure.
 ex ALTER TABLE Product
 ADD CONSTRAINT FK_Product_Category
 FOREIGN KEY (category_id)
