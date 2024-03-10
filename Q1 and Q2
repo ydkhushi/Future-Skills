@@ -1,25 +1,30 @@
 Questions
 
-1. Explain the relationship between the "Product" and "Product_Category" entities from the above diagram.
+Q1. Explain the relationship between the "Product" and "Product_Category" entities from the above diagram.
 Ans.
-The relationship between the "Product" and "Product_Category" entities in the provided ER diagram is fundamental for organizing and categorizing products effectively. In the context of the database schema outlined:
-Product Table: This table serves as the repository for information pertaining to individual products, encompassing attributes such as product ID (primary key), name, description, price, and more.
-Product_Category Table: The "Product_Category" table is dedicated to defining various categories or types under which products are classified. Each category is represented by a unique category ID (primary key) along with descriptive attributes like name and description.
-The relationship between these two entities is established through a foreign key constraint, which is a pivotal aspect of database normalization and integrity. Specifically:
-Within the "Product" table, there exists a foreign key column, typically named "category_id," which references the primary key "category_id" in the "Product_Category" table.
-This foreign key column in the "Product" table denotes the category to which each product belongs. By linking the "Product" table to the "Product_Category" table via this foreign key, the database establishes a clear association between products and their respective categories.
-This relationship facilitates efficient data retrieval and management, enabling users to categorize, query, and analyze products based on their assigned categories. Moreover, it ensures data consistency and integrity, as the foreign key constraint restricts the insertion of invalid category IDs into the "Product" table.
-In summary, the relationship between the "Product" and "Product_Category" entities plays a pivotal role in organizing and structuring product data within the database, fostering effective categorization and streamlined data operations.
+1. The relationship between "Product" and "Product_Category" entities is a "many-to-one" relationship.
+2. This implies that many products can belong to one category.
+3. It facilitates efficient organization and classification of products.
+4. Changes made to category details reflect consistently across all associated products.
+5. Ensures data integrity and coherence within the database.
 
-2. How could you ensure that each product in the "Product" table has a valid category assigned to it?
+Q2. How could you ensure that each product in the "Product" table has a valid category assigned to it?
 Ans.
-To ensure each product in the "Product" table has a valid category:
+To ensure each product in the "Product" table has a valid category. We will use concept of Referential Integrity for ensuring consistency 
+and accuracy of data relationships between tables . It's enforced through various mechanisms, primarily foreign key constraints
 
-Implement a foreign key constraint between the "Product" and "Product_Category" tables.
-This constraint ensures that every category assigned to a product must exist in the "Product_Category" table.
-Any attempt to assign an invalid category will be rejected by the database system, maintaining data integrity.
+1 .Implement a foreign key constraint between the "Product" and "Product_Category" tables.
+ex ALTER TABLE Product
+ADD CONSTRAINT FK_Product_Category
+FOREIGN KEY (category_id)
+REFERENCES Product_Category(category_id);
 
-
+2. Any attempt to assign an invalid category will be rejected by the database system, maintaining data integrity.
+3. Maintaining Data Consistency
+In summary, by using referential integrity through foreign key constraints, the database ensures 
+that each product in the "Product" table has a valid category assigned to it. This approach not only guarantees 
+data consistency and accuracy but also simplifies data management
+and maintenance in the long run.
 
 
 
